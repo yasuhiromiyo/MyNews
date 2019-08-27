@@ -21,7 +21,7 @@ class ProfileController extends Controller
       // Varidationを行う
       $this->validate($request, Profiles::$rules);
 
-      $news = new Profiles;
+      $profiles = new Profiles;
       $form = $request->all();
 
       // フォームから送信されてきた_tokenを削除する
@@ -34,13 +34,30 @@ class ProfileController extends Controller
           return redirect('admin/profile/create');
       }
 
-    public function edit()
+    public function edit(Request $request)
      {
+  
+      // Profiles Modelからデータを取得する
+      $profiles = Profiles::find($request->id);
+      if (empty($profiles)) {
+        abort(404);    }
             return view('admin.profile.edit');
      }
    
-    public function update()
+    public function update(Request $request)
      {
+               // Validationをかける
+      $this->validate($request, Profiles::$rules);
+      // profiles Modelからデータを取得する
+      $profiles = Profiles::find($request->id);
+      // 送信されてきたフォームデータを格納する
+      $profiles_form = $request->all();
+       unset($profiles_form['_token']);
+      // 該当するデータを上書きして保存する
+      $profiles->fill($profiles_form)->save();
+
             return redirect('admin/profile/edit');
      }
+
+
 }
