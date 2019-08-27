@@ -17,7 +17,7 @@
                     @endif
                     
                     <div class="form-group row">
-                        <label class="col-md-2" for="name">氏名</label>
+                        <label class="col-md-2" for="body">氏名</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="name" value="{{ old('name') }}">
                         </div>
@@ -26,8 +26,8 @@
                      <div class="form-group row">
                         <label class="col-md-2" for="gender">性別</label>
                         <div class="col-md-10">
-                            <input type="radio" class="form-control" name="male" value="男">男
-                            <input type="radio" class="form-control" name="female" value="女">女
+                            <input type="radio" class="radio" name="gender" value="男">男
+                            <input type="radio" class="radio" name="gender" value="女">女
                         </div>
                     </div>
                     
