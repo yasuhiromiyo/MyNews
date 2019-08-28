@@ -28,8 +28,8 @@ class ProfileController extends Controller
       unset($form['_token']);
 
       // データベースに保存する
-      $news->fill($form);
-      $news->save();
+      $profiles->fill($form);
+      $profiles->save();
 
           return redirect('admin/profile/create');
       }
@@ -41,7 +41,7 @@ class ProfileController extends Controller
       $profiles = Profiles::find($request->id);
       if (empty($profiles)) {
         abort(404);    }
-            return view('admin.profile.edit');
+            return view('admin.profile.edit', ['profiles_form' => $profiles]);
      }
    
     public function update(Request $request)

@@ -25,12 +25,10 @@ Route::group(['prefix' => 'admin'], function() {
 
 Route::group(['prefix' => 'admin'], function() {
     Route::get('profile/edit', 'Admin\ProfileController@edit')->middleware('auth');
-    Route::post('profile/edit', 'Admin\ProfileController@updata')->middleware('auth');
-
-    Route::get('profile', 'Admin\ProfileController@index')->middleware('auth');
+    Route::post('profile/edit', 'Admin\ProfileController@update')->middleware('auth');
     Route::post('profile/create', 'Admin\ProfileController@create');
     Route::get('profile/create', 'Admin\ProfileController@add')->middleware('auth');
-    Route::get('profile/delete','Admin\ProfileController@delete')->middleware('auth');
+
 
 
     
@@ -62,5 +60,5 @@ Route::group(['prefix' => 'admin'], function() {
 });
 
 Route::group(['prefix' => 'admin'], function() {
-    Route::post('profile/edit', 'Admin\ProfileController@updata')->middleware('auth');
+    Route::post('profile/edit', 'Admin\ProfileController@update')->middleware('auth');
 });
