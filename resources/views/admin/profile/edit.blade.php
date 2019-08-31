@@ -25,8 +25,17 @@
                      <div class="form-group row">
                         <label class="col-md-2" for="gender">性別</label>
                         <div class="col-md-10">
-                            <input type="radio" class="radio" name="gender" value="male">男
-                            <input type="radio" class="radio" name="gender" value="female">女
+                            {{$profiles_form->gender}}
+                            <input type="radio" class="radio" name="gender" value="男" 
+                            @if($profiles_form->gender == '男')
+                                checked 
+                            @endif
+                            >男
+                            <input type="radio" class="radio" name="gender" value="女" 
+                            @if($profiles_form->gender == '女')
+                                checked 
+                            @endif
+                            >女
                         </div>
                     </div>
                     
