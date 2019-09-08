@@ -20,11 +20,7 @@ class News extends Model
       return $this->hasMany('App\History');
 
     }
-    public function profiles_histories()
-    {
-      return $this->hasMany('App\ProfilesHistory');
 
-    }
 }
 
 
